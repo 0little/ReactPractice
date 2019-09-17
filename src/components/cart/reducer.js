@@ -1,4 +1,3 @@
-import {combineReducers} from "redux";
 
 const GOODS_LIST = (() => {
   let srcArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'Z', 'A', 'E', 'G', 'q', 'm', 'R']
@@ -20,18 +19,19 @@ const GOODS_LIST = (() => {
 })()
 
 
-const goodsList = (state = GOODS_LIST, action) => {
+export const goodsList = (state = GOODS_LIST, action) => {
   return state
 }
 
-const myCart = (state = [], action) => {
+export const myCart = (state = [], action) => {
   switch (action.type) {
     case 'DECREASE_COUNT':
       let index = state.findIndex(item => item.id === action.id)
-      console.log(action.id, 'iiiiiiiiiiiiii')
+      // console.log(action.id, 'iiiiiiiiiiiiii')
       if ((--state[index].count) <= 0) {
         state.splice(index, 1)
       }
+      // return state
       return JSON.parse(JSON.stringify(state))
     case 'ADD_COUNT':
       let addOne = state.find(item => item.id === action.id)
@@ -47,4 +47,4 @@ const myCart = (state = [], action) => {
   }
 }
 
-export default combineReducers({goodsList, myCart})
+// export default combineReducers({goodsList, myCart})

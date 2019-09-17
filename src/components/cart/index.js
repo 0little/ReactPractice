@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import { Menu, Icon } from 'ppfish'
-import rootReducer from './reducer'
+// import rootReducer from './reducer'
 import GoodsList from './GoodsList'
 import MyCart from'./MyCart'
 
-const store = createStore(rootReducer)
+// const store = createStore(rootReducer)
 
 class Cart extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class Cart extends Component {
 
   render () {
     return (
-      <Provider store={store}>
+      <div>
         <h1>Welcome to {this.state.name}</h1>
         <Menu
           onClick={this.handleClick}
@@ -41,7 +41,7 @@ class Cart extends Component {
           </Menu.Item>
         </Menu>
         {this.state.current === 'list' ? <GoodsList/> : <MyCart/>}
-      </Provider>
+      </div>
     )
   }
 }

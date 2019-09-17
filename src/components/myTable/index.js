@@ -1,26 +1,24 @@
 //容器组件
-import MyCart from './myCart'
+import MyTable from './view'
 import { connect } from 'react-redux'
-import * as cartAction from '../action'
-import { routerActions } from 'react-router-redux'
+import * as proAction from './action'
+// import { routerActions } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 
 const mapStateToProps = (state) => {
-  console.log(state, 'ssssssssssssss')
   return {
-   myCart: state.myCart
+    proSelect: state.proSelect
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return Object.assign(
     {},
-    bindActionCreators(cartAction, dispatch),
-    bindActionCreators(routerActions, dispatch)
+    bindActionCreators(proAction, dispatch)
   )
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MyCart)
+)(MyTable)
